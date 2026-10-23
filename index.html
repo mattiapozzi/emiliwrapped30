@@ -57,6 +57,10 @@ body{display:flex;align-items:center;justify-content:center}
 .kicker{font-weight:700;font-size:1.05rem;color:var(--ink);margin-bottom:14px;max-width:24ch}
 .big{font-family:var(--display);font-weight:900;line-height:.95;letter-spacing:-.03em;font-size:clamp(3.2rem,17vw,5.6rem);color:var(--hl)}
 #final .outro-word{display:inline-block;font-size:clamp(2.2rem,10.5vw,3.5rem)}
+#final{padding-top:64px;padding-bottom:78px;gap:clamp(8px,2vh,16px)}
+#final .big{font-size:clamp(2rem,min(13vw,6vh),4.2rem)}
+#final .outro-word{font-size:clamp(1.7rem,min(9vw,4.5vh),3rem)}
+#final .btn{margin-top:0;padding:14px 22px}
 .huge{font-family:var(--display);font-weight:900;line-height:.9;letter-spacing:-.04em;font-size:clamp(7rem,40vw,11.5rem);color:var(--hl)}
 .title{font-family:var(--display);font-weight:800;line-height:1.05;letter-spacing:-.02em;font-size:clamp(1.8rem,9vw,2.7rem)}
 .sub{color:var(--dim);font-size:1.05rem;line-height:1.45;margin-top:16px;max-width:30ch}
@@ -118,6 +122,41 @@ body{display:flex;align-items:center;justify-content:center}
 .active .tile{animation:flip .6s cubic-bezier(.2,.9,.25,1.2) forwards;animation-delay:calc(var(--k)*.22s + .6s)}
 @keyframes flip{to{opacity:1;transform:none}}
 
+/* ---- iconografia Budapest ---- */
+.scene{margin-top:16px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.flags{display:flex;align-items:center;gap:14px}
+.flags svg{width:64px;height:44px;border-radius:6px;box-shadow:0 4px 14px rgba(0,0,0,.45);transform-origin:left center}
+.active .flags svg{animation:wave 3s ease-in-out infinite alternate}
+@keyframes wave{from{transform:rotate(-3deg)}to{transform:rotate(3deg) skewY(2deg)}}
+.rplane{font-size:1.8rem;display:inline-block}
+.active .rplane{animation:fly 1.8s ease-in-out infinite alternate}
+@keyframes fly{to{transform:translate(8px,-8px) rotate(-8deg)}}
+.parl{width:100%;max-width:340px;height:auto;overflow:visible}
+.stickers{display:flex;gap:10px;justify-content:center}
+.stk{width:48px;height:48px;border-radius:50%;background:rgba(10,10,15,.88);border:2px solid var(--hl);display:flex;align-items:center;justify-content:center;font-size:1.5rem}
+.active .stk{animation:bob 2.4s ease-in-out infinite alternate}
+.stk:nth-child(even){animation-delay:-1.2s!important}
+@keyframes bob{to{translate:0 -6px}}
+/* ---- carta d'imbarco ---- */
+.ticket{background:var(--ink);color:#0a0a0f;border-radius:20px;padding:18px;transform:rotate(-2deg);margin-top:18px;box-shadow:0 12px 30px rgba(0,0,0,.5)}
+.tk-top{display:flex;justify-content:space-between;font-size:.7rem;font-weight:700;letter-spacing:.12em;color:#555}
+.route{display:flex;align-items:center;justify-content:space-between;margin:14px 0}
+.route b{font:900 2rem var(--display);display:block}
+.route small{font-size:.72rem;color:#555}
+.tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;border-top:2px dashed #bbb;padding-top:12px}
+.tk-grid small{display:block;font-size:.65rem;letter-spacing:.1em;color:#777;font-weight:700}
+.tk-grid span{font-weight:700;font-size:.95rem}
+.barcode{height:34px;margin-top:12px;background:repeating-linear-gradient(90deg,#0a0a0f 0 2px,transparent 2px 4px,#0a0a0f 4px 5px,transparent 5px 9px,#0a0a0f 9px 12px,transparent 12px 14px)}
+.days{margin-top:18px;font-weight:700;font-size:1.1rem}
+.days b{font:900 1.8rem var(--display);color:var(--hl)}
+/* ---- playlist ---- */
+.tracks{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.tracks li{display:flex;align-items:center;gap:12px;background:rgba(10,10,15,.88);border-radius:12px;padding:11px 14px;font-weight:700}
+.tracks i{font-style:normal;color:var(--hl);font-family:var(--display);width:1.2em}
+.tracks span{flex:1}
+.tracks small{display:block;color:var(--dim);font-weight:400;font-size:.78rem}
+.tracks em{font-style:normal;color:var(--dim);font-size:.85rem}
+
 @media(prefers-reduced-motion:reduce){
   .tile{opacity:1;transform:none}
   *{animation:none!important;transition:none!important}
@@ -161,6 +200,60 @@ body{display:flex;align-items:center;justify-content:center}
       <span class="tile" style="--k:0">B</span><span class="tile" style="--k:1">U</span><span class="tile" style="--k:2">D</span><span class="tile" style="--k:3">A</span><span class="tile" style="--k:4">P</span><span class="tile" style="--k:5">E</span><span class="tile" style="--k:6">S</span><span class="tile" style="--k:7">T</span>
     </div>
     <h2 class="title in" style="--i:17;margin-top:18px">Si parte per Budapest!</h2>
+    <div class="scene">
+      <div class="flags in" style="--i:19" aria-label="Italia verso Ungheria">
+        <svg viewBox="0 0 3 2" aria-hidden="true"><rect width="1" height="2" fill="#009246"/><rect x="1" width="1" height="2" fill="#fff"/><rect x="2" width="1" height="2" fill="#CE2B37"/></svg>
+        <span class="rplane">✈️</span>
+        <svg viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#477050"/><rect width="3" height="1.334" fill="#fff"/><rect width="3" height=".667" fill="#CE2939"/></svg>
+      </div>
+      <svg class="parl in" style="--i:20" viewBox="0 -14 300 130" role="img" aria-label="Il Parlamento di Budapest">
+        <defs><pattern id="win" width="10" height="14" patternUnits="userSpaceOnUse"><rect x="3" y="3" width="4" height="8" rx="2" fill="#0a0a0f" opacity=".55"/></pattern></defs>
+        <g fill="#f6f6fb">
+          <rect x="20" y="72" width="260" height="30"/>
+          <rect x="20" y="56" width="22" height="46"/><polygon points="18,56 31,30 44,56"/>
+          <rect x="258" y="56" width="22" height="46"/><polygon points="256,56 269,30 282,56"/>
+          <rect x="88" y="60" width="9" height="42"/><polygon points="86,60 92.5,38 99,60"/>
+          <rect x="203" y="60" width="9" height="42"/><polygon points="201,60 207.5,38 214,60"/>
+          <rect x="116" y="50" width="68" height="52"/><rect x="128" y="32" width="44" height="20"/>
+          <path d="M126 32 Q150 -4 174 32 Z"/><polygon points="147,14 150,-14 153,14"/>
+        </g>
+        <rect x="20" y="72" width="260" height="30" fill="url(#win)"/><rect x="116" y="50" width="68" height="52" fill="url(#win)"/>
+        <path d="M0 108 q15 -7 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" fill="none" stroke="var(--hl)" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <div class="stickers in" style="--i:21" aria-hidden="true">
+        <span class="stk" title="Paprika">🌶️</span><span class="stk" title="Terme">♨️</span><span class="stk" title="Tram">🚋</span><span class="stk" title="Ponte delle Catene">🌉</span><span class="stk" title="Tokaji">🍷</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SLIDE · CARTA D'IMBARCO ========== -->
+  <section class="slide" data-theme="d">
+    <div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div>
+    <p class="kicker in" style="--i:0">Il tuo biglietto è pronto</p>
+    <div class="ticket in" style="--i:1">
+      <div class="tk-top"><span>CARTA D’IMBARCO</span><span>EMILI AIRLINES</span></div>
+      <div class="route"><div><b>NAP</b><small>Napoli</small></div><span style="font-size:1.6rem">✈️</span><div style="text-align:right"><b>BUD</b><small>Budapest</small></div></div>
+      <div class="tk-grid">
+        <div><small>PASSEGGERA</small><span>EMILI</span></div><div><small>DATA</small><span>07/01/2027</span></div>
+        <div><small>POSTO</small><span>30A</span></div><div><small>CLASSE</small><span>Economy (non esageriamo)</span></div>
+      </div>
+      <div class="barcode"></div>
+    </div>
+    <p class="days in" style="--i:2" data-days hidden><b>0</b> giorni al decollo</p>
+  </section>
+
+  <!-- ========== SLIDE · PLAYLIST ========== -->
+  <section class="slide" data-theme="e">
+    <div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div>
+    <p class="kicker in" style="--i:0">La tua playlist di viaggio</p>
+    <h2 class="title in" style="--i:1">Budapest <span style="color:var(--hl)">Mix</span></h2>
+    <ol class="tracks">
+      <li class="in" style="--i:2"><i>1</i><span>Bagni termali<small>Széchenyi?</small></span><em>3:42</em></li>
+      <li class="in" style="--i:3"><i>2</i><span>Il Parlamento al tramonto<small>dal lungofiume</small></span><em>2:58</em></li>
+      <li class="in" style="--i:4"><i>3</i><span>Bastione dei Pescatori<small>vista su tutta la città</small></span><em>3:15</em></li>
+      <li class="in" style="--i:5"><i>4</i><span>Serata ai ruin bar<small>Szimpla Kert, forse</small></span><em>4:20</em></li>
+      <li class="in" style="--i:6"><i>5</i><span>Lángos a colazione<small>e gulasch a cena</small></span><em>1:30</em></li>
+     </ol>
   </section>
 
   <!-- ========== SLIDE 7 · OUTRO ========== -->
@@ -180,7 +273,8 @@ body{display:flex;align-items:center;justify-content:center}
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <script>
 /* ============ IMPOSTAZIONI DA MODIFICARE ============ */
-const PHOTO_1 = "";   // es. "foto-emili.jpg" (metti il file nella stessa cartella) oppure un URL
+const DEPARTURE = "2027-01-07";  // data di partenza "AAAA-MM-GG" (es. "2027-03-12"): se la compili compare il conto alla rovescia
+const PHOTO_1 = "5971970180927655849.jpg";   // es. "foto-emili.jpg" (metti il file nella stessa cartella) oppure un URL
 /* ==================================================== */
 
 /* ============ QUIZ (slide 2-5): modifica pure domande e risposte ============ */
@@ -242,9 +336,22 @@ const bars = document.getElementById('bars');
 const prev = document.getElementById('prev'), next = document.getElementById('next');
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 let cur = -1;
+if (DEPARTURE) {
+  const d = Math.ceil((new Date(DEPARTURE + 'T00:00:00') - new Date()) / 864e5);
+  const el = document.querySelector('[data-days]');
+  if (d > 0) { el.querySelector('b').dataset.count = d; el.hidden = false; }
+}
 
 slides.forEach(() => bars.appendChild(document.createElement('i')));
-if (PHOTO_1) { const p = document.getElementById('photo1'); p.style.backgroundImage = `url('${PHOTO_1}')`; p.textContent = ''; }
+if (PHOTO_1) {
+  const p = document.getElementById('photo1');
+  if (p) {
+    p.style.backgroundImage = `url('${PHOTO_1}')`;
+    p.textContent = '';
+  } else {
+    console.warn('PHOTO_1 è configurata, ma manca l’elemento con id="photo1".');
+  }
+}
 
 function countUp(el){
   const end = +el.dataset.count;
